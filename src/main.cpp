@@ -1,12 +1,4 @@
-﻿// LoggerLauncher.cpp: определяет точку входа для приложения.
-//
-
-#include "LoggerLauncher.h"
-
-using namespace std;
-
-int main()
+﻿int main()
 {
-	cout << "Hello CMake." << endl;
-	return 0;
+    return 0;
 }
