@@ -1,7 +1,9 @@
 ﻿#ifndef LOGGER_LAUNCHER_HPP
 #define LOGGER_LAUNCHER_HPP
 
-#include "Logger/src/CategorizedLogger.hpp"
+#include <Logger/src/CategorizedLogger.hpp>
+
+#include <GenEnum/src/GenEnum.h>
 
 namespace logger {
 DEFINE_CAT_LOGGER_MODULE(CoreLauncher);
