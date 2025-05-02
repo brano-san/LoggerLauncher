@@ -13,9 +13,9 @@ file(GLOB_RECURSE LAUNCHER_HEADER_FILES ${CMAKE_CURRENT_LIST_DIR}/src/*.hpp)
 file(GLOB_RECURSE LAUNCHER_SOURCE_FILES ${CMAKE_CURRENT_LIST_DIR}/src/*.cpp)
 add_executable (${PROJECT_NAME} ${LAUNCHER_HEADER_FILES} ${LAUNCHER_SOURCE_FILES})
 
-message(STATUS "Output dir - ${CMAKE_SOURCE_DIR}/bin")
+message(STATUS "Output dir - ${CMAKE_SOURCE_DIR}/build/bin")
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/bin/$<CONFIG>"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/bin/Logger$<CONFIG>"
 )
 
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/third_party/Logger")
