@@ -15,7 +15,7 @@ add_executable (${PROJECT_NAME} ${LAUNCHER_HEADER_FILES} ${LAUNCHER_SOURCE_FILES
 
 message(STATUS "Output dir - ${CMAKE_SOURCE_DIR}/build/bin")
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/bin/Logger$<CONFIG>"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/bin/${PROJECT_NAME}_$<CONFIG>"
 )
 
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/third_party/Logger")
