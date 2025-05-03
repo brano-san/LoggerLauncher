@@ -18,9 +18,10 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/bin/${PROJECT_NAME}_$<CONFIG>"
 )
 
+set(ENABLE_DEBUG ON)
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/third_party/Logger")
 target_link_libraries(${PROJECT_NAME} PRIVATE Logger)
-target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/third_party")
+target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/third_party/Logger/src")
 
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/third_party/GenEnum")
 target_link_libraries(${PROJECT_NAME} PRIVATE GenEnum)

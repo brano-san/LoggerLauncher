@@ -4,8 +4,24 @@
 
 #include <windows.h>
 
+LONG WINAPI unhandledExceptionFilter(_EXCEPTION_POINTERS* ExceptionInfo)
+{
+    LOG_CRITICAL(Core, "CRASH");
+    return 0;
+}
+
 int main()
 {
+    SetUnhandledExceptionFilter(unhandledExceptionFilter);
+    AddVectoredContinueHandler(0, unhandledExceptionFilter);
+
+    std::set_terminate(
+        []()
+        {
+            LOG_CRITICAL(Core, "Crash");
+            exit(-1);
+        });
+
     try
     {
         LOG_TRACE_L3(Core, "Core - LOG_TRACE_L3");
@@ -30,8 +46,6 @@ int main()
     {
         std::cout << ex.what() << '\n';
     }
-
-    // RaiseException(EXCEPTION_ACCESS_VIOLATION, 0, 0, nullptr);
 
     for (uint8_t i = 0; i < 40; ++i)
     {
@@ -71,6 +85,8 @@ int main()
 
     uint8_t myVariable = 5;
     LOGV_INFO(Core, "VALUE LOG", myVariable);
+
+    RaiseException(EXCEPTION_ACCESS_VIOLATION, 0, 0, nullptr);
 
     return 0;
 }
