@@ -1,26 +1,13 @@
 ﻿#include <iostream>
 
 #include "Logger.hpp"
+#include "debug/StackTrace.hpp"
 
 #include <windows.h>
 
-LONG WINAPI unhandledExceptionFilter(_EXCEPTION_POINTERS* ExceptionInfo)
-{
-    LOG_CRITICAL(Core, "CRASH");
-    return 0;
-}
-
 int main()
 {
-    SetUnhandledExceptionFilter(unhandledExceptionFilter);
-    AddVectoredContinueHandler(0, unhandledExceptionFilter);
-
-    std::set_terminate(
-        []()
-        {
-            LOG_CRITICAL(Core, "Crash");
-            exit(-1);
-        });
+    debug::setStackTraceOutputOnCrash();
 
     try
     {
