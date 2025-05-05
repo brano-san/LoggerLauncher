@@ -7,7 +7,7 @@
 
 int main()
 {
-    debug::setStackTraceOutputOnCrash();
+    debug::setStackTraceOutputOnCrash(logger::s_CoreLauncherLogger.getFirstLoggerOrNullptr());
 
     try
     {
@@ -41,7 +41,7 @@ int main()
 
     int var_a         = 123;
     std::string var_b = "test";
-    for (uint32_t i = 0; i < 40; ++i)
+    for (uint32_t i = 0; i < 20; ++i)
     {
         // Will only log the message once per second
         LOG_INFO_LIMIT_TIME(Core, std::chrono::seconds{1}, "A json message with {var_1} and {var_2}", var_a, var_b);
@@ -51,27 +51,34 @@ int main()
         }
     }
 
-    LOG_INFO(Core, "BEFORE backtrace Example {}", 1);
+    try
+    {
+        LOG_INFO(Core, "BEFORE backtrace Example {}", 1);
 
-    LOG_BACKTRACE(Core, "Backtrace log {}", 1);
-    LOG_BACKTRACE(Core, "Backtrace log {}", 2);
-    LOG_BACKTRACE(Core, "Backtrace log {}", 3);
-    LOG_BACKTRACE(Core, "Backtrace log {}", 4);
+        LOG_BACKTRACE(Core, "Backtrace log {}", 1);
+        LOG_BACKTRACE(Core, "Backtrace log {}", 2);
+        LOG_BACKTRACE(Core, "Backtrace log {}", 3);
+        LOG_BACKTRACE(Core, "Backtrace log {}", 4);
 
-    LOG_INFO(Core, "AFTER backtrace Example {}", 1);
+        LOG_INFO(Core, "AFTER backtrace Example {}", 1);
 
-    LOG_ERROR(Core, "An error has happened, Backtrace is also flushed.");
-    LOG_ERROR(Core, "An second error has happened, but backtrace is now empty.");
+        LOG_ERROR(Core, "An error has happened, Backtrace is also flushed.");
+        LOG_ERROR(Core, "An second error has happened, but backtrace is now empty.");
 
-    LOG_BACKTRACE(Core, "Another Backtrace log {}", 1);
-    LOG_BACKTRACE(Core, "Another Backtrace log {}", 2);
+        LOG_BACKTRACE(Core, "Another Backtrace log {}", 1);
+        LOG_BACKTRACE(Core, "Another Backtrace log {}", 2);
 
-    LOG_INFO(Core, "Another log info");
-    LOG_CRITICAL(Core, "A critical error from different logger.");
-    LOG_CRITICAL(Core, "A critical error from the logger we had a backtrace.");
+        LOG_INFO(Core, "Another log info");
+        LOG_CRITICAL(Core, "A critical error from different logger.");
+        LOG_CRITICAL(Core, "A critical error from the logger we had a backtrace.");
 
-    uint8_t myVariable = 5;
-    LOGV_INFO(Core, "VALUE LOG", myVariable);
+        uint8_t myVariable = 5;
+        LOGV_INFO(Core, "VALUE LOG", myVariable);
+    }
+    catch (const std::exception& ex)
+    {
+        LOG_INFO(Core, "Exception {}", ex.what());
+    }
 
     RaiseException(EXCEPTION_ACCESS_VIOLATION, 0, 0, nullptr);
 
