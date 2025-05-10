@@ -3,7 +3,20 @@
 #include "Logger.hpp"
 #include "debug/StackTrace.hpp"
 
+#if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
+#elif defined(__linux__)
+#include <csignal>
+#endif
+
+void raiseSignal()
+{
+#if defined(_WIN32) || defined(_WIN64)
+    RaiseException(EXCEPTION_ACCESS_VIOLATION, 0, 0, nullptr);
+#elif defined(__linux__)
+    raise(SIGSEGV);
+#endif
+}
 
 int main()
 {
@@ -80,7 +93,7 @@ int main()
         LOG_INFO(Core, "Exception {}", ex.what());
     }
 
-    RaiseException(EXCEPTION_ACCESS_VIOLATION, 0, 0, nullptr);
+    raiseSignal();
 
     return 0;
 }
