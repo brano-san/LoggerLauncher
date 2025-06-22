@@ -21,7 +21,3 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 set(ENABLE_DEBUG ON)
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/third_party/Logger")
 target_link_libraries(${PROJECT_NAME} PRIVATE Logger)
-
-add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/third_party/GenEnum")
-target_link_libraries(${PROJECT_NAME} PRIVATE GenEnum)
-target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/third_party")
