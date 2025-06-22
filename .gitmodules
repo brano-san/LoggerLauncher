@@ -2,7 +2,3 @@
 	path = third_party/Logger
 	url = git@github.com:brano-san/Logger.git
 	branch = master
-[submodule "third_party/GenEnum"]
-	path = third_party/GenEnum
-	url = git@github.com:brano-san/GenEnum.git
-	branch = master
