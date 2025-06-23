@@ -2,7 +2,7 @@
 #define LOGGER_LAUNCHER_HPP
 
 #include <GenEnum/src/GenEnum.h>
-#include <Logger/src/CategorizedLogger.hpp>
+#include <logger/CategorizedLogger.hpp>
 
 namespace logger {
 GENENUM(uint8_t, CoreLauncherSource, Core, Test);
