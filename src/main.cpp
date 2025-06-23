@@ -18,8 +18,6 @@ void raiseSignal()
 #endif
 }
 
-GENENUM(uint8_t, EnumName, Core, Test);
-
 int main()
 {
     debug::setStackTraceOutputOnCrash(logger::s_CoreLauncherLogger.getFirstLoggerOrNullptr());
