@@ -9,7 +9,7 @@
 #include <csignal>
 #endif
 
-void raiseSignal()
+static void raiseSignal()
 {
 #if defined(_WIN32) || defined(_WIN64)
     RaiseException(EXCEPTION_ACCESS_VIOLATION, 0, 0, nullptr);
@@ -52,8 +52,8 @@ int main()
         LOG_INFO_LIMIT_EVERY_N(Core, 10, "There should be 4 of these logs");
     }
 
-    int var_a         = 123;
-    std::string var_b = "test";
+    const int var_a         = 123;
+    const std::string var_b = "test";
     for (uint32_t i = 0; i < 20; ++i)
     {
         // Will only log the message once per second
@@ -85,7 +85,7 @@ int main()
         LOG_CRITICAL(Core, "A critical error from different logger.");
         LOG_CRITICAL(Core, "A critical error from the logger we had a backtrace.");
 
-        uint8_t myVariable = 5;
+        const uint8_t myVariable = 5;
         LOGV_INFO(Core, "VALUE LOG", myVariable);
     }
     catch (const std::exception& ex)
