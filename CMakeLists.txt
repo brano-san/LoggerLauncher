@@ -20,4 +20,4 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 set(ENABLE_DEBUG ON)
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/third_party/Logger")
-target_link_libraries(${PROJECT_NAME} PRIVATE Logger)
+target_link_libraries(${PROJECT_NAME} PRIVATE Logger::Logger)
