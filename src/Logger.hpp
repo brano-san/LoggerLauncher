@@ -1,7 +1,7 @@
 ﻿#ifndef LOGGER_LAUNCHER_HPP
 #define LOGGER_LAUNCHER_HPP
 
-#include <GenEnum/src/GenEnum.h>
+#include <GenEnum/src/GenEnum.hpp>
 #include <logger/CategorizedLogger.hpp>
 
 namespace logger {
