@@ -20,7 +20,7 @@ static void raiseSignal()
 
 int main()
 {
-    debug::setStackTraceOutputOnCrash(logger::s_CoreLauncherLogger.getFirstLoggerOrNullptr());
+    // debug::setStackTraceOutputOnCrash(logger::s_CoreLauncherLogger.getFirstLoggerOrNullptr());
 
     try
     {
