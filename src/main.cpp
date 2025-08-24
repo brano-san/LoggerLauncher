@@ -3,6 +3,7 @@
 #include "Logger.hpp"
 #include "debug/StackTrace.hpp"
 
+#include <quill/std/Array.h>
 #include <quill/std/Vector.h>
 
 #if defined(_WIN32) || defined(_WIN64)
@@ -97,6 +98,9 @@ int main()
 
     std::vector<uint32_t> vec{5, 6, 7, 8, 9};
     LOGV_INFO(Core, "Vector Log", vec);
+
+    std::array<uint32_t, 5> arr{5, 6, 7, 8, 9};
+    LOGV_INFO(Core, "Array Log", arr);
 
     raiseSignal();
     return 0;
