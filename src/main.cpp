@@ -3,6 +3,8 @@
 #include "Logger.hpp"
 #include "debug/StackTrace.hpp"
 
+#include <quill/std/Vector.h>
+
 #if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
 #elif defined(__linux__)
@@ -90,10 +92,12 @@ int main()
     }
     catch (const std::exception& ex)
     {
-        LOG_INFO(Core, "Exception {}", ex.what());
+        LOG_ERROR(Core, "Exception {}", ex.what());
     }
 
-    raiseSignal();
+    std::vector<uint32_t> vec{5, 6, 7, 8, 9};
+    LOGV_INFO(Core, "Vector Log", vec);
 
+    raiseSignal();
     return 0;
 }
