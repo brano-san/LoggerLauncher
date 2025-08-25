@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include <GenEnum/src/GenEnum.hpp>
+#include <GenEnum.hpp>
 #include <logger/CategorizedLogger.hpp>
 
 #define LOGGER_NAME CoreLauncher
