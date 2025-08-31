@@ -3,6 +3,9 @@
 #include "Logger.hpp"
 #include "debug/StackTrace.hpp"
 
+#include <quill/std/Array.h>
+#include <quill/std/Vector.h>
+
 #if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
 #elif defined(__linux__)
@@ -20,7 +23,7 @@ static void raiseSignal()
 
 int main()
 {
-    debug::setStackTraceOutputOnCrash(logger::s_CoreLauncherLogger.getFirstLoggerOrNullptr());
+    // debug::setStackTraceOutputOnCrash(logger::s_CoreLauncherLogger.getFirstLoggerOrNullptr());
 
     try
     {
@@ -29,6 +32,7 @@ int main()
         LOG_TRACE_L1(Core, "Core - LOG_TRACE_L1");
         LOG_DEBUG(Core, "Core - LOG_DEBUG");
         LOG_INFO(Core, "Core - LOG_INFO");
+        LOG_NOTICE(Core, "Core - LOG_NOTICE");
         LOG_WARNING(Core, "Core - LOG_WARNING");
         LOG_ERROR(Core, "Core - LOG_ERROR");
         LOG_CRITICAL(Core, "Core - LOG_CRITICAL");
@@ -38,6 +42,7 @@ int main()
         LOG_TRACE_L1(Test, "Test - LOG_TRACE_L1");
         LOG_DEBUG(Test, "Test - LOG_DEBUG");
         LOG_INFO(Test, "Test - LOG_INFO");
+        LOG_NOTICE(Test, "Test - LOG_NOTICE");
         LOG_WARNING(Test, "Test - LOG_WARNING");
         LOG_ERROR(Test, "Test - LOG_ERROR");
         LOG_CRITICAL(Test, "Test - LOG_CRITICAL");
@@ -90,10 +95,18 @@ int main()
     }
     catch (const std::exception& ex)
     {
-        LOG_INFO(Core, "Exception {}", ex.what());
+        LOG_ERROR(Core, "Exception {}", ex.what());
     }
 
-    raiseSignal();
+    std::vector<uint32_t> vec{5, 6, 7, 8, 9};
+    LOGV_INFO(Core, "Vector Log", vec);
 
+    std::array<uint32_t, 5> arr{5, 6, 7, 8, 9};
+    LOGV_INFO(Core, "Array Log", arr);
+
+    uint32_t a;
+    std::cin >> a;
+
+    // raiseSignal();
     return 0;
 }
