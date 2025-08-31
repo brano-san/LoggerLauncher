@@ -7,8 +7,9 @@
 #define LOGGER_CATEGORIES_SOURCES CoreLauncherSources
 
 namespace logger {
+static constexpr uint8_t kLoggerBacktraceLenght = 2;
 GENENUM(uint8_t, CoreLauncherSource, Core, Test);
-DEFINE_CAT_LOGGER_MODULE(CoreLauncher, CoreLauncherSources);
+DEFINE_CAT_LOGGER_MODULE(CoreLauncher, CoreLauncherSources, kLoggerBacktraceLenght);
 }  // namespace logger
 
 // clang-format off

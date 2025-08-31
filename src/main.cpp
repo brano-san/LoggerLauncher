@@ -104,6 +104,9 @@ int main()
     std::array<uint32_t, 5> arr{5, 6, 7, 8, 9};
     LOGV_INFO(Core, "Array Log", arr);
 
+    uint32_t a;
+    std::cin >> a;
+
     // raiseSignal();
     return 0;
 }
