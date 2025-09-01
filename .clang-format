@@ -65,7 +65,6 @@ FixNamespaceComments: true
 ForEachMacros:
   - foreach
   - Q_FOREACH
-IncludeBlocks: Regroup
 UseTab: Never
 TabWidth: 4
 Standard: c++20
@@ -95,6 +94,7 @@ SpaceAfterLogicalNot: false
 SpaceAfterCStyleCast: false
 ReflowComments: true
 PointerAlignment: Left
+ReferenceAlignment: Left
 PPIndentWidth: 4
 ObjCSpaceBeforeProtocolList: true
 ObjCSpaceAfterProperty: false
@@ -105,11 +105,11 @@ MaxEmptyLinesToKeep: 1
 LambdaBodyIndentation: Signature
 KeepEmptyLinesAtTheStartOfBlocks: false
 JavaScriptWrapImports: true
-IndentWrappedFunctionNames: false
+IndentWrappedFunctionNames: true
 IndentWidth: 4
 IndentPPDirectives: None
-IndentCaseLabels: false
-AlignArrayOfStructures: Left
+IndentCaseLabels: true
+AlignArrayOfStructures: Right
 AlignConsecutiveBitFields:
   Enabled: true
   AcrossEmptyLines: true
@@ -127,7 +127,7 @@ AlignTrailingComments:
   OverEmptyLines: 0
 AllowAllConstructorInitializersOnNextLine: true
 AlwaysBreakAfterReturnType: None
-BreakAfterAttributes: Never
+BreakAfterAttributes: Leave
 BreakArrays: false
 BreakBeforeBraces: Custom
 BreakBeforeConceptDeclarations: Always
@@ -155,7 +155,6 @@ RequiresClausePosition: OwnLine
 RequiresExpressionIndentation: OuterScope
 SeparateDefinitionBlocks: Always
 ShortNamespaceLines: 0
-SortIncludes: Never
 UseCRLF: false
 SpaceBeforeParensOptions:
   AfterControlStatements: true
@@ -170,3 +169,17 @@ SpaceBeforeParensOptions:
 PackConstructorInitializers: BinPack
 StatementAttributeLikeMacros:
   - emit
+AlignConsecutiveShortCaseStatements:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: true
+  AlignCaseColons: false
+InsertBraces: true
+IntegerLiteralSeparator:
+  Binary: 4
+  BinaryMinDigits: 4
+  Decimal: 3
+  DecimalMinDigits: 4
+  Hex: -1
+RemoveSemicolon: true
+SortIncludes: false
