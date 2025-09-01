@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include <GenEnum.hpp>
-#include <logger/CategorizedLogger.hpp>
+#include <logger/CategorizedLogger/CategorizedLogger.hpp>
 
 #define LOGGER_NAME CoreLauncher
 #define LOGGER_CATEGORIES_SOURCES CoreLauncherSources
