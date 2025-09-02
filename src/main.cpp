@@ -37,15 +37,15 @@ int main()
         LOG_ERROR(Core, "Core - LOG_ERROR");
         LOG_CRITICAL(Core, "Core - LOG_CRITICAL");
 
-        LOG_TRACE_L3(Test, "Test - LOG_TRACE_L3");
-        LOG_TRACE_L2(Test, "Test - LOG_TRACE_L2");
-        LOG_TRACE_L1(Test, "Test - LOG_TRACE_L1");
-        LOG_DEBUG(Test, "Test - LOG_DEBUG");
-        LOG_INFO(Test, "Test - LOG_INFO");
-        LOG_NOTICE(Test, "Test - LOG_NOTICE");
-        LOG_WARNING(Test, "Test - LOG_WARNING");
-        LOG_ERROR(Test, "Test - LOG_ERROR");
-        LOG_CRITICAL(Test, "Test - LOG_CRITICAL");
+        LOG_TRACE_L3(Testing, "Test - LOG_TRACE_L3");
+        LOG_TRACE_L2(Testing, "Test - LOG_TRACE_L2");
+        LOG_TRACE_L1(Testing, "Test - LOG_TRACE_L1");
+        LOG_DEBUG(Testing, "Test - LOG_DEBUG");
+        LOG_INFO(Testing, "Test - LOG_INFO");
+        LOG_NOTICE(Testing, "Test - LOG_NOTICE");
+        LOG_WARNING(Testing, "Test - LOG_WARNING");
+        LOG_ERROR(Testing, "Test - LOG_ERROR");
+        LOG_CRITICAL(Testing, "Test - LOG_CRITICAL");
     }
     catch (const std::exception& ex)
     {

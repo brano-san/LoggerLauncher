@@ -8,7 +8,7 @@
 
 namespace logger {
 static constexpr uint8_t kLoggerBacktraceLenght = 2;
-GENENUM(uint8_t, CoreLauncherSource, Core, Test);
+GENENUM(uint8_t, CoreLauncherSource, Core, Testing);
 DEFINE_CAT_LOGGER_MODULE(CoreLauncher, CoreLauncherSources, kLoggerBacktraceLenght);
 }  // namespace logger
 
