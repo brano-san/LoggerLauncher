@@ -20,6 +20,7 @@ Checks: >
   -cppcoreguidelines-pro-bounds-array-to-pointer-decay,
   -cppcoreguidelines-prefer-member-initializer,
   -cppcoreguidelines-pro-type-reinterpret-cast,
+  -cppcoreguidelines-avoid-do-while,
 
   modernize-*,
   -modernize-use-trailing-return-type,
